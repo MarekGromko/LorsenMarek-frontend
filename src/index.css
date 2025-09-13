@@ -3,3 +3,6 @@
 @import "./styles/fonts.scss";
 @import "./styles/icons.css";
 @import "./styles/buttons.css";
+
+/* components */
+@import "./components/PagedPanel.style.css";
