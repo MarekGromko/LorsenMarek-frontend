@@ -1,23 +1,29 @@
+import { cnf } from "../utils/className";
 
 interface PagedPanelProps extends React.PropsWithChildren{
-    columns?: number
-    page: number,
-    prev?: boolean,
-    next?: boolean,
-    onPageRequest: (new_page: number, current_page: number) => any
+    page: number;
+    hasPrevPage?: boolean;
+    hasNextPage?: boolean;
+    isWaiting?: boolean;
 }
 
-const PagedPanel = ({children, columns}: PagedPanelProps) => {
-    let wrapper_style: React.CSSProperties = {
-        gridTemplateColumns: "1fr ".repeat(Math.max(Number.isInteger(columns) ? (columns as any) : 0, 1)).trim(),
-    }
+const PagedPanel = ({children, isWaiting, ...props}: PagedPanelProps) => {
+    
     return (
-        <div style={wrapper_style} className="paged-panel">
+        <div className="paged-panel">
             <div className="pagination">
-                
+                {!isWaiting && <>
+                    {props.hasPrevPage && <button className="t-button">
+                        <div className="t-icon i-caret-left xlarge"/>
+                    </button>}
+                    <div>page {props.page}</div>
+                    {props.hasNextPage && <button className="t-button" >
+                        <div className="t-icon i-caret-right xlarge"/>
+                    </button>}
+                </>}
             </div>
-            <div className="t-panel big content">
-                {children}
+            <div className={cnf("page-content t-panel big", isWaiting && "is-waiting")}>
+                {isWaiting ? <div className="loader"/> : children}
             </div>
         </div>
     )

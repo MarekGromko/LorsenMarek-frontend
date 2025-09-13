@@ -1,0 +1,21 @@
+.paged-panel {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    .pagination {
+        height: 32px;
+        align-self: flex-end;
+        margin-right: 12px;
+        display: flex;
+        flex-direction: row;
+        color: var(--clr-txt-secondary);
+        align-items: center;
+        column-gap: 6px;
+    }
+    .page-content.is-waiting {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .loader {width: 48px;}
+    }
+}
