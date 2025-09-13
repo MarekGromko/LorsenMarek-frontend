@@ -1,0 +1,36 @@
+.t-button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    &.column {
+        flex-direction: column;
+    }
+    align-items: center;
+    font-size: inherit;
+    transition: background-color .05s;
+    border-radius: 6px;
+    padding: 2px;
+
+
+    --normal-fill: var(--clr-bg-button);
+    --normal-text: var(--clr-fg-button);
+    --hover-fill:  var(--clr-bg-button-hover);
+    --active-fill: var(--clr-bg-button-active);
+    --active-text: var(--clr-fg-button-active);
+    --normal-border: var(--clr-btn-border);
+
+    border: 1px solid var(--normal-border);
+    background-color: var(--normal-fill);
+    color: var(--normal-text);
+    &:hover {
+        background-color: var(--hover-fill);
+    }
+    &:active {
+        background-color: var(--active-fill);
+        color: var(--active-text);
+    }
+}
+
+.t-button.style-flat {
+    --border: var(--clr)
+}

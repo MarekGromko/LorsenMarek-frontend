@@ -12,6 +12,12 @@
     --clr-txt-tertiary: #AFAFB5;
     --clr-txt-label: #B7B7C6;
     --clr-txt-link: #0090FF;
+    
+    --clr-bg-button: transparent;
+    --clr-fg-button: #a4a4b4;
+    --clr-bg-button-hover: #00003706;
+    --clr-bg-button-active: #000037A0;
+    --clr-fg-button-active: #838395;
 
     --shd-panel-big: 0px 0px 72px #00001402;
     --shd-ibox: 0px 16px 14px -10px #00000902; 
