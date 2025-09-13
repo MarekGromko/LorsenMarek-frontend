@@ -1,8 +1,10 @@
+@import "./styles/root.css";
 @import "./styles/vars.css";
 @import "./styles/panels.css";
 @import "./styles/fonts.scss";
 @import "./styles/icons.css";
 @import "./styles/buttons.css";
+@import "./styles/loader.css";
 
 /* components */
 @import "./components/PagedPanel.style.css";

@@ -30,9 +30,8 @@
         background-color: var(--active-fill);
         color: var(--active-text);
     }
-}
-
-&.t-button.disabled {
-    opacity: 0.6;
+    &.disabled {
+    opacity: 0.4;
     pointer-events: none;
+}
 }

@@ -8,17 +8,20 @@
 
     --clr-txt-title: #404043;
     /*--clr-txt-primary: */
-    --clr-txt-secondary: #87878F;
-    --clr-txt-tertiary: #AFAFB5;
-    --clr-txt-label: #B7B7C6;
+    --clr-txt-secondary: #747483;
+    --clr-txt-tertiary: #9898a1;
+    --clr-txt-label: #a3a3b4;
     --clr-txt-link: #0090FF;
     
     --clr-bg-button: transparent;
-    --clr-fg-button: #a4a4b4;
-    --clr-bg-button-hover: #00003706;
-    --clr-bg-button-active: #000037A0;
-    --clr-fg-button-active: #838395;
+    --clr-fg-button: var(--clr-txt-tertiary);
+    --clr-bg-button-hover: #00003718;
+    --clr-bg-button-active: #00003732;
+    --clr-fg-button-active: #6a6a79;
 
     --shd-panel-big: 0px 0px 72px #00001402;
     --shd-ibox: 0px 16px 14px -10px #00000902; 
+
+    --clr-loader: #003;
+    --clr-loader-inverted: #F8F8FF;
 }
