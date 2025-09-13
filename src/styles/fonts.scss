@@ -1,0 +1,12 @@
+@mixin fontRubik($name, $weight, $style) {
+  @font-face {
+    font-family: rubik;
+    src: url('/fonts/Rubik/static/Rubik-#{$name}.ttf') format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include fontRubik('Regular', 400, normal);
+@include fontRubik('Medium', 500, normal);
+@include fontRubik('Bold', 700, normal);
