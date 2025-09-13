@@ -1,0 +1,18 @@
+:root {
+    --clr-bg-default: #F7F7F8;
+    --clr-bg-panel: #FFFFFF;
+    
+    --clr-brd-ibox: #D4D4D8;
+    --clr-bg-ibox: #FCFCFD;
+    --clr-bg-ibox-hover: #F6F6F8;
+
+    --clr-txt-title: #404043;
+    /*--clr-txt-primary: */
+    --clr-txt-secondary: #87878F;
+    --clr-txt-tertiary: #AFAFB5;
+    --clr-txt-label: #B7B7C6;
+    --clr-txt-link: #0090FF;
+
+    --shd-panel-big: 0px 0px 72px #00001402;
+    --shd-ibox: 0px 16px 14px -10px #00000902; 
+}
