@@ -10,6 +10,7 @@
     transition: background-color .05s;
     border-radius: 6px;
     padding: 2px;
+    cursor: pointer;
 
 
     --normal-fill: var(--clr-bg-button);
@@ -31,6 +32,7 @@
     }
 }
 
-.t-button.style-flat {
-    --border: var(--clr)
+&.t-button.disabled {
+    opacity: 0.6;
+    pointer-events: none;
 }
