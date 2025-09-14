@@ -9,3 +9,4 @@
 /* components */
 @import "./components/PagedPanel.style.css";
 @import "./components/PersonCell.style.css";
+@import "./components/SearchBar.style.css";
