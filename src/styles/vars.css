@@ -1,17 +1,15 @@
 :root {
-    --clr-bg-default: #F7F7F8;
+    --clr-bg-default: #F6F6F8;
     --clr-bg-panel: #FFFFFF;
     
-    --clr-brd-ibox: #D4D4D8;
-    --clr-bg-ibox: #FCFCFD;
-    --clr-bg-ibox-hover: #F6F6F8;
+    --clr-brd-ibox: #CECDD5;
+    --clr-bg-ibox: #F9F9FB;
 
-    --clr-txt-title: #404043;
-    /*--clr-txt-primary: */
+    --clr-txt-primary: #2E2E38
     --clr-txt-secondary: #747483;
     --clr-txt-tertiary: #9898a1;
     --clr-txt-label: #a3a3b4;
-    --clr-txt-link: #0090FF;
+    --clr-txt-link: #0084f0;
     
     --clr-bg-button: transparent;
     --clr-fg-button: var(--clr-txt-tertiary);
@@ -19,8 +17,8 @@
     --clr-bg-button-active: #00003732;
     --clr-fg-button-active: #6a6a79;
 
-    --shd-panel-big: 0px 0px 72px #00001402;
-    --shd-ibox: 0px 16px 14px -10px #00000902; 
+    --shd-panel-big: 0px 0px 72px #00001408;
+    --shd-ibox: 0px 16px 14px -10px #00000906; 
 
     --clr-loader: #003;
     --clr-loader-inverted: #F8F8FF;
