@@ -35,3 +35,7 @@
     pointer-events: none;
 }
 }
+
+.t-button {
+    &.pad-4 {padding: 4px;}
+}
