@@ -38,3 +38,14 @@ export const personBuilder = (): PersonBuilder=>{
         }
     } as unknown as PersonBuilder;;
 }
+export const personCompare = (a: any, b: any): boolean =>{
+    return (
+        typeof a === 'object' && 
+        typeof b === 'object' &&
+        a['id'] === b['id'] &&
+        a['firstName'] === b['firstName'] &&
+        a['lastName'] === b['lastName'] &&
+        a['gender'] === b['gender'] &&
+        a['email'] === b['email']
+    );
+}
