@@ -9,6 +9,12 @@
     row-gap: 8px;
     box-sizing: border-box;
 
+    .loader {
+        align-self: center;
+        justify-self: center;
+        width: 64px;
+    }
+
     .id-field {
         margin-left: 1em;
         display: flex;

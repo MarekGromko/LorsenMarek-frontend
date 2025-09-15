@@ -4,30 +4,27 @@ import PersonCell from "../components/PersonCell";
 
 import { useSearchParams } from "react-router";
 import { usePersonSearch } from "../api/personApi";
-import { useRef } from "react";
 
 const PAGE_SIZE = 10;
 
 const PersonSearchPage = ()=>{
-    const forceSearch = useRef<boolean>(false)
     const [searchParams, setSearchParams] = useSearchParams();
-    const searchResult = usePersonSearch({
+    const [searchResult, reloadResult] = usePersonSearch({
         name: searchParams.get('name'), 
         page: Number(searchParams.get("page")) || 0,
         pageSize: 20
-    }, forceSearch.current);
-    forceSearch.current = false;
+    });
 
-    const handleSearch = (query: string, isForce: boolean) => {
-        forceSearch.current = isForce;
+    const handleSearch = (query: string) => {
         setSearchParams((params)=>{
             params.set('name', query);
             return params;
         });
+        reloadResult();
+        
     }
 
     const handlePageChange = (page: number) => {
-        console.log(page);
         setSearchParams((params)=>{
             params.set('page', page.toString());
             return params;
