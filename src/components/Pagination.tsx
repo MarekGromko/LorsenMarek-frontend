@@ -1,3 +1,5 @@
+import { cnf } from "../utils/className";
+
 type PaginationProps  = {
     onPageChange?: (page: number, currentPage: number) => any,
     page: number;
@@ -6,7 +8,7 @@ type PaginationProps  = {
     disabled?: boolean;
 };
 
-const Pagination = ({page, ...props}: PaginationProps) => {
+const Pagination = ({page, disabled, ...props}: PaginationProps) => {
     const makePageHandler = (pageReq: number) => {
         return ()=>{
             if(props.onPageChange)
@@ -14,7 +16,7 @@ const Pagination = ({page, ...props}: PaginationProps) => {
         }
     }
     return (
-        <div className="pagination">
+        <div className={cnf("pagination", disabled && 'disabled')}>
             {typeof page === 'number'  && <>
                 {props.hasPrevPage && <button className="t-button" onClick={makePageHandler(page-1)}>
                     <div className="t-icon i-caret-left xlarge"/>

@@ -7,4 +7,9 @@
     color: var(--clr-txt-secondary);
     align-items: center;
     column-gap: 6px;
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
