@@ -22,6 +22,16 @@
     --clr-bg-button-active: #00003732;
     --clr-fg-button-active: #6a6a79;
 
+    --clr-fg-button-accent: #1a56b5;
+    --clr-bg-button-accent-hover: #002fff21;
+    --clr-bg-button-accent-active: #002fff32;
+    --clr-fg-button-accent-active: #003fa5;
+
+    --clr-fg-button-danger: #b9353e;
+    --clr-bg-button-danger-hover: #ff003721;
+    --clr-bg-button-danger-active: #ff003c32;
+    --clr-fg-button-danger-active: #cf001c;
+
     --shd-panel-big: 0px 0px 72px #00001408;
     --shd-ibox: 0px 16px 14px -10px #00000906; 
     --shd-input: 0px 18px 12px -12px #00001610;

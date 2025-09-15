@@ -11,6 +11,8 @@
 @import "./components/Pagination.style.css";
 @import "./components/PersonCell.style.css";
 @import "./components/SearchBar.style.css";
+@import "./components/Editable.style.css";
 
 /* pages */
-@import "./pages/PersonSearchPage.style.css"
+@import "./pages/PersonSearchPage.style.css";
+@import "./pages/PersonDetailPage.style.css";

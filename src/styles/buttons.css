@@ -31,11 +31,30 @@
         color: var(--active-text);
     }
     &.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-}
+        opacity: 0.4;
+        pointer-events: none;
+    }
 }
 
 .t-button {
     &.pad-4 {padding: 4px;}
+    &.pad-8 {padding: 8px;}
+}
+
+.t-button.accent {
+    --normal-fill:   var(--clr-bg-button);
+    --normal-text:   var(--clr-fg-button-accent);
+    --hover-fill:    var(--clr-bg-button-accent-hover);
+    --active-fill:   var(--clr-bg-button-accent-active);
+    --active-text:   var(--clr-fg-button-accent-active);
+    --normal-border: var(--clr-btn-border);
+}
+
+.t-button.danger {
+    --normal-fill:   var(--clr-bg-button);
+    --normal-text:   var(--clr-fg-button-danger);
+    --hover-fill:    var(--clr-bg-button-danger-hover);
+    --active-fill:   var(--clr-bg-button-danger-active);
+    --active-text:   var(--clr-fg-button-danger-active);
+    --normal-border: var(--clr-btn-border);
 }

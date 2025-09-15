@@ -28,4 +28,6 @@
     &.i-pencil { --icon-url: url("/icons/pencil.svg") }
     &.i-search { --icon-url: url("/icons/search.svg") }
     &.i-xmark { --icon-url: url("/icons/xmark.svg") }
+    &.i-cloud-arrow-up { --icon-url: url("/icons/cloud-arrow-up.svg") }
+    &.i-trash { --icon-url: url("/icons/trash.svg") }
 }
