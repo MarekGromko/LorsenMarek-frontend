@@ -1,32 +1,36 @@
 .person-search-page {
     display: grid;
-    grid-template-rows: auto 1fr;
-    max-width: 840px;
+    grid-template-rows: auto auto 1fr;
+    max-width: 920px;
     margin: auto;
     padding: 32px;
     padding-top: 64px;
     padding-bottom: 64px;
     box-sizing: border-box;
     height: 100%;
-    row-gap: 20px;
+    row-gap: 16px;
     overflow: hidden;
 
-    .search-bar {
+    .search-bar, .pagination {
         justify-self: end;
     }
 
-    .paged-panel {
+    .result-wrapper {
+        overflow-x: scroll;
+    }
+
+    .result-grid {
         height: 100%;
-        .page-content {
-            overflow: auto;
-        }
-        .result-grid {
-            height: 100%;
-            margin: 32px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            row-gap: 24px;
-            column-gap: 24px;
-        }
+        margin: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 24px;
+        column-gap: 24px;
+    }
+
+    .loader {
+        width: 64px;
+        justify-self: center;
+        align-self: center;
     }
 }

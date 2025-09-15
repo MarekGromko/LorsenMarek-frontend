@@ -1,41 +1,66 @@
-import { Suspense, use } from "react";
-import PagedPanel from "../components/PagedPanel";
 import SearchBar from "../components/SearchBar";
-import { Person } from "../models/Person";
-import { useSearchParams } from "react-router";
-import { fetchManyPerson } from "../api/personApi";
+import Pagination from "../components/Pagination";
 import PersonCell from "../components/PersonCell";
 
-interface ResultWrapperProps {
-    promise: Promise<Person[]>
-}
+import { useSearchParams } from "react-router";
+import { usePersonSearch } from "../api/personApi";
+import { useRef } from "react";
 
-const ResultWrapper = ({promise}: ResultWrapperProps) => {
-    const people = use(promise);
-    return (
-        <PagedPanel page={1} hasNextPage={false}>
-                <div className="result-grid">
-                    {people.map((person)=>(
-                        <PersonCell
-                            key={person.id}
-                            {...person}
-                        />
-                    ))}
-                </div>
-        </PagedPanel>
-    )
-}
+const PAGE_SIZE = 10;
 
 const PersonSearchPage = ()=>{
-    const [searchParams, seSearchParams] = useSearchParams();
-    const promise = fetchManyPerson();
+    const forceSearch = useRef<boolean>(false)
+    const [searchParams, setSearchParams] = useSearchParams();
+    const searchResult = usePersonSearch({
+        name: searchParams.get('name'), 
+        page: Number(searchParams.get("page")) || 0,
+        pageSize: 20
+    }, forceSearch.current);
+    forceSearch.current = false;
 
+    const handleSearch = (query: string, isForce: boolean) => {
+        forceSearch.current = isForce;
+        setSearchParams((params)=>{
+            params.set('name', query);
+            return params;
+        });
+    }
+
+    const handlePageChange = (page: number) => {
+        console.log(page);
+        setSearchParams((params)=>{
+            params.set('page', page.toString());
+            return params;
+        });
+    }
+
+
+    const page = Number(searchParams.get("page")) || 1;
+    const hasPrevPage = page > 1;
+    const hasNextPage = searchResult.ready(people=>people.length > PAGE_SIZE).notReady(()=>true).unwrap();
     return (
         <div className="person-search-page">
-            <SearchBar onSearch={()=>{}}/>
-            <Suspense fallback={<PagedPanel><div className="loader"/></PagedPanel>}>
-                <ResultWrapper promise={promise}/>
-            </Suspense>
+            <SearchBar onSearch={handleSearch}/>
+            <Pagination 
+                page={page}
+                disabled={searchResult.state !== 'ready'}
+                hasPrevPage={hasPrevPage}
+                hasNextPage={hasNextPage}
+                onPageChange={handlePageChange} 
+            />
+            {searchResult
+                .notReady(()=><div className="loader"/>)
+                .ready(data=>{
+                    return (
+                        <div className="t-panel big result-wrapper entry-transition">
+                            <div className="result-grid">
+                                {data.map(person=><PersonCell key={person.id} {...person}/>)}
+                            </div>
+                        </div>
+                    )
+                })
+                .unwrap()
+            }
         </div>
     )
 }
