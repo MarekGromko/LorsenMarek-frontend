@@ -30,4 +30,5 @@
     &.i-xmark { --icon-url: url("/icons/xmark.svg") }
     &.i-cloud-arrow-up { --icon-url: url("/icons/cloud-arrow-up.svg") }
     &.i-trash { --icon-url: url("/icons/trash.svg") }
+    &.i-alert-circle { --icon-url: url("/icons/alert-circle.svg") }
 }
