@@ -28,17 +28,44 @@ export const fetchPersonSearch = async (opts: PersonSearchOptions) => {
     return faker.helpers.multiple(mockPerson, {count: 20});
 }
 
-export const usePersonSearch = (opts: PersonSearchOptions, force?: boolean): ApiResult<Person[]> => {
-    const forceRef = useRef(0);
-    const [result, setResult] = useState<ApiResult<Person[]>>(new ApiResult('loading'));
-    if(force) forceRef.current = forceRef.current+1;
+export const usePersonSearch = (opts: PersonSearchOptions) => {
+    const [reloadi, setReloadi] = useState(0);
+    const [result, setResult] = useState<ApiResult<Person[]>>(ApiResult.loading());
 
     useEffect(() => {
         if(result.state != 'loading') 
-            setResult(new ApiResult('loading'));
+            setResult(ApiResult.loading());
         fetchPersonSearch(opts).then(data=>{
-            setResult(new ApiResult('ready', data));
+            setResult(ApiResult.ready(data));
         });
-    }, [opts.name, opts.page, opts.pageSize, forceRef.current]);
-    return result;
+    }, [opts.name, opts.page, opts.pageSize, reloadi]);
+    
+    return [result, ()=>void setReloadi(reloadi+1)] as const;
+}
+
+export const fetchPerson = async (id: number) => {
+    await sleep(2000);
+    return mockPerson();
+}
+
+export const usePerson = (id: number) => {
+    const [reloadi, setReloadi] = useState(0);
+    const [result, setResult] = useState<ApiResult<Person>>(ApiResult.loading());
+    useEffect(()=>{
+        if(result.state != 'loading') 
+            setResult(ApiResult.loading());
+        fetchPerson(id).then(data=>{
+            setResult(ApiResult.ready(data))
+        })
+    }, [id, reloadi])
+    return [result, ()=>void setReloadi(reloadi+1)] as const;
+}
+export const updatePerson = async (person: Person) => {
+    await sleep(2000);
+    return;
+}
+
+export const deletePerson = async (id: number)=>{
+    await sleep(2000);
+    return;
 }

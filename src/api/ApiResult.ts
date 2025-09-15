@@ -7,6 +7,16 @@ export default class ApiResult<T>{
     private cb_error?: (error: Error)=>any;
     private cb_loading?: ()=>any;
     private cb_notReady?: ()=>any;
+
+    static loading<T>() {
+        return new ApiResult<T>('loading');
+    }
+    static ready<T>(data: T) {
+        return new ApiResult<T>('ready', data);
+    }
+    static error<T>(error?: Error) {
+        return new ApiResult<T>('error', undefined, error);
+    }
     constructor(state: ApiResult<T>['state'], data?: T, error?: Error) {
         this.state = state;
         this.dataDatail  = data;
@@ -45,8 +55,13 @@ export default class ApiResult<T>{
             case 'ready':
                 if(this.cb_ready) return this.cb_ready(this.dataDatail as any);
         }
-        return null;
+        this.cb_error = undefined;
+        this.cb_ready = undefined;
+        this.cb_notReady = undefined;
+        this.cb_loading = undefined;
     }
-
+    getData(): T | undefined {
+        return this.dataDatail;
+    }
 
 } 
