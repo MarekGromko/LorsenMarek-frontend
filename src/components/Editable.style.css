@@ -1,0 +1,32 @@
+.editable {
+    display: flex;
+    flex-direction: column;
+    row-gap: .2em;
+
+    label {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--clr-txt-secondary);
+    }
+
+    .value {
+        font-size: 1em;
+        height: 1.2em;
+        display: flex;
+        flex-direction: row;
+        column-gap: .5em;
+        align-items: center;
+        button {
+            font-size: 18px;
+        }
+    }
+
+    input {
+        border: none;
+        font-size: .8em;
+        padding: .2em .5em;
+        background-color: var(--clr-bg-button-hover);
+        border-radius: .4em;
+    }
+}
