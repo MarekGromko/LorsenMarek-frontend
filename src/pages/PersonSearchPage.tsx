@@ -5,14 +5,14 @@ import PersonCell from "../components/PersonCell";
 import { useSearchParams } from "react-router";
 import { usePersonSearch } from "../api/personApi";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 16;
 
 const PersonSearchPage = ()=>{
     const [searchParams, setSearchParams] = useSearchParams();
-    const [searchResult, reloadResult] = usePersonSearch({
+    const [searchResult] = usePersonSearch({
         name: searchParams.get('name'), 
         page: Number(searchParams.get("page")) || 0,
-        pageSize: 20
+        pageSize: PAGE_SIZE
     });
 
     const handleSearch = (query: string) => {
@@ -20,8 +20,6 @@ const PersonSearchPage = ()=>{
             params.set('name', query);
             return params;
         });
-        reloadResult();
-        
     }
 
     const handlePageChange = (page: number) => {
@@ -48,10 +46,11 @@ const PersonSearchPage = ()=>{
             {searchResult
                 .notReady(()=><div className="loader"/>)
                 .ready(data=>{
+                    console.log(data.length);
                     return (
                         <div className="t-panel big result-wrapper entry-transition">
                             <div className="result-grid">
-                                {data.map(person=><PersonCell key={person.id} {...person}/>)}
+                                {data.slice(0, PAGE_SIZE).map(person=><PersonCell key={person.id} {...person}/>)}
                             </div>
                         </div>
                     )

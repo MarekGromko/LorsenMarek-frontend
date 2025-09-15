@@ -15,6 +15,22 @@
         width: 64px;
     }
 
+    .error-message {
+        margin-top: 32px;
+        justify-self: center;
+        font-size: 32px;
+        color: var(--clr-txt-danger);
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        align-items: center;
+        > div {
+            display: flex;
+            flex-direction: row;
+            column-gap: 12px;
+        }
+    }
+
     .id-field {
         margin-left: 1em;
         display: flex;

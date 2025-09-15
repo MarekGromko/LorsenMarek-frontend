@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import Editable from "../components/Editable";
 import { deletePerson, updatePerson, usePerson } from "../api/personApi";
 import { useEffect, useState } from "react";
@@ -90,8 +90,20 @@ const PersonDetailPage = ()=>{
                 <div>@{params.id!.padStart(12, '0')}</div>
             </div>
             {remoteDetails
-                .ready((remoteDetails)=><PersonDetailWrapper reloadRemote={reloadRemote} localDetails={localDetails} remoteDetails={remoteDetails} setLocalDetails={setLocalDetails}/>)
-                .notReady(()=><div className="loader"/>)
+                .ready((remoteDetails)=>(
+                    <PersonDetailWrapper 
+                        reloadRemote={reloadRemote} 
+                        localDetails={localDetails} 
+                        remoteDetails={remoteDetails} 
+                        setLocalDetails={setLocalDetails}/>))
+                .loading(()=><div className="loader"/>)
+                .error(()=><div className="error-message entry-transition" >
+                        <div>
+                            <div className="t-icon i-alert-circle"/>
+                            <div>404: Could not find this user!</div>
+                        </div>
+                        <Link to="/">Go back</Link>
+                </div>)
                 .unwrap()
             }
         </div>

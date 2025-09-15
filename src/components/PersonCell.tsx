@@ -15,7 +15,7 @@ const PersonCell = (props: PersonCellProps) => {
             <div className="row id-gender">
                 <div className="id">
                     <label>ID</label>
-                    <Link to={"/person/" + props.id}>@{props.id}</Link>
+                    <Link to={"/person/" + props.id}>@{props.id.toString().padStart(12, '0')}</Link>
                 </div>
                 <div className="gender">{props.gender}</div>
             </div>
