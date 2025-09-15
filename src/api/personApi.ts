@@ -1,8 +1,10 @@
 import {faker} from "@faker-js/faker";
 import { Person, personBuilder } from "../models/Person";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ApiResult from "./ApiResult";
+import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL + 'person/';
 
 const mockPerson = ()=>{
     return personBuilder()
@@ -13,9 +15,7 @@ const mockPerson = ()=>{
         .gender(faker.person.gender())
         .build();
 }
-
 const sleep = (ms: number)=>new Promise((res)=>setTimeout(res, ms));
-
 
 interface PersonSearchOptions {
     name?: string | null,
@@ -24,10 +24,16 @@ interface PersonSearchOptions {
 }
 
 export const fetchPersonSearch = async (opts: PersonSearchOptions) => {
-    await sleep(2000);
-    return faker.helpers.multiple(mockPerson, {count: 20});
+    console.log(opts);
+    const result = await axios.get<Person[]>(BASE_URL + 'search', {
+        params: {
+            "name": opts.name || "",
+            "pageIndex": opts.page,
+            "pageSize": opts.pageSize
+        }
+    });
+    return result.data;
 }
-
 export const usePersonSearch = (opts: PersonSearchOptions) => {
     const [reloadi, setReloadi] = useState(0);
     const [result, setResult] = useState<ApiResult<Person[]>>(ApiResult.loading());
@@ -42,12 +48,10 @@ export const usePersonSearch = (opts: PersonSearchOptions) => {
     
     return [result, ()=>void setReloadi(reloadi+1)] as const;
 }
-
 export const fetchPerson = async (id: number) => {
-    await sleep(2000);
-    return mockPerson();
+    const result = await axios.get<Person>(BASE_URL + id);
+    return result.data;
 }
-
 export const usePerson = (id: number) => {
     const [reloadi, setReloadi] = useState(0);
     const [result, setResult] = useState<ApiResult<Person>>(ApiResult.loading());
@@ -56,16 +60,17 @@ export const usePerson = (id: number) => {
             setResult(ApiResult.loading());
         fetchPerson(id).then(data=>{
             setResult(ApiResult.ready(data))
+        }).catch((reason)=>{
+            setResult(ApiResult.error(reason))
         })
     }, [id, reloadi])
     return [result, ()=>void setReloadi(reloadi+1)] as const;
 }
 export const updatePerson = async (person: Person) => {
-    await sleep(2000);
+    await axios.patch(BASE_URL + person.id, person);
     return;
 }
-
 export const deletePerson = async (id: number)=>{
-    await sleep(2000);
+    await axios.delete(BASE_URL + id);
     return;
 }
