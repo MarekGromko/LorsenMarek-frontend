@@ -2,15 +2,15 @@ import { useRef } from "react";
 
 interface SearchBarProps{
     placeholder?: string;
-    onSearch?: (hint: string)=>any
+    onSearch?: (hint: string, isForce: boolean)=>any
 }
 
 const SearchBar = (props: SearchBarProps)=>{
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = () => {
+    const handleSubmit = (isForce: boolean = false) => {
         if(props.onSearch && inputRef.current)
-            props.onSearch(inputRef.current.value);
+            props.onSearch(inputRef.current.value, isForce);
     }
 
     const eraseInput = ()=>{
@@ -30,7 +30,7 @@ const SearchBar = (props: SearchBarProps)=>{
                     <div className="t-icon i-xmark xlarge"/>
                 </button>
             </div>
-            <button onClick={handleSubmit} className="t-button pad-4">
+            <button onClick={()=>handleSubmit(true)} className="t-button pad-4">
                 <div className="t-icon i-arrow-refresh xlarge"/>
             </button>
         </div>
