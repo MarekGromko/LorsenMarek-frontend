@@ -1,7 +1,7 @@
 @keyframes entry-upward-animation {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -10,5 +10,5 @@
 }
 
 .entry-transition {
-    animation: entry-upward-animation 0.3s ease-in-out;
+    animation: entry-upward-animation 0.5s cubic-bezier(0.267, 0.003, 0.111, 0.989);
 }
