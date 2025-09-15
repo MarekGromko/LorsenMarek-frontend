@@ -5,6 +5,7 @@
 @import "./styles/icons.css";
 @import "./styles/buttons.css";
 @import "./styles/loader.css";
+@import "./styles/animations.css";
 
 /* components */
 @import "./components/PagedPanel.style.css";
