@@ -8,7 +8,7 @@
 @import "./styles/animations.css";
 
 /* components */
-@import "./components/PagedPanel.style.css";
+@import "./components/Pagination.style.css";
 @import "./components/PersonCell.style.css";
 @import "./components/SearchBar.style.css";
 
