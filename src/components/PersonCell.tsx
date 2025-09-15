@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 interface PersonCellProps{
     id: number;
     firstName: string;
@@ -13,7 +15,7 @@ const PersonCell = (props: PersonCellProps) => {
             <div className="row id-gender">
                 <div className="id">
                     <label>ID</label>
-                    <div>@{props.id}</div>
+                    <Link to={"/person/" + props.id}>@{props.id}</Link>
                 </div>
                 <div className="gender">{props.gender}</div>
             </div>
