@@ -31,4 +31,6 @@
     &.i-cloud-arrow-up { --icon-url: url("/icons/cloud-arrow-up.svg") }
     &.i-trash { --icon-url: url("/icons/trash.svg") }
     &.i-alert-circle { --icon-url: url("/icons/alert-circle.svg") }
+    &.i-desktop { --icon-url: url("/icons/desktop.svg") }
+    &.i-logo { --icon-url: url("/icons/logo.svg") }
 }

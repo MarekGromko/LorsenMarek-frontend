@@ -1,21 +1,9 @@
-import {faker} from "@faker-js/faker";
-import { Person, personBuilder } from "../models/Person";
+import { Person } from "../models/Person";
 import { useEffect, useState } from "react";
 import ApiResult from "./ApiResult";
 import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL + 'person/';
-
-const mockPerson = ()=>{
-    return personBuilder()
-        .id(faker.number.int())
-        .firstName(faker.person.firstName())
-        .lastName(faker.person.lastName())
-        .email(faker.internet.email())
-        .gender(faker.person.gender())
-        .build();
-}
-const sleep = (ms: number)=>new Promise((res)=>setTimeout(res, ms));
 
 interface PersonSearchOptions {
     name?: string | null,

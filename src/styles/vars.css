@@ -1,25 +1,30 @@
 :root {
-    --clr-bg-default: #F6F6F8;
+    --vp-max-width: 1440px;
+    --clr-bg-default: #F8F8F9;
+    --clr-divider: #DADAE0;
+
+    --clr-bg-navbar: #F1F1F5;
 
     --clr-bg-panel: #FFFFFF;
     --clr-brd-panel: #B5B5C4;
     
-    --clr-brd-ibox: #CECDD5;
-    --clr-bg-ibox: #F9F9FB;
+    --clr-brd-ibox: #C8C8D0;
+    --clr-bg-ibox: #F5F5F8;
 
     --clr-txt-primary: #2E2E38;
     --clr-txt-secondary: #747483;
-    --clr-txt-tertiary: #9898a1;
+    --clr-txt-tertiary: #9292a0;
     --clr-txt-low-contrast: #b3b3c1;
     --clr-txt-label: #a4a4b4;
     --clr-txt-link: #0084f0;
+    --clr-txt-accent: #1e4ec5;
     --clr-txt-danger: #f00038;
 
     --clr-in-focus: #0060f0;
     
     --clr-bg-button: transparent;
     --clr-fg-button: #888892;
-    --clr-bg-button-hover: #00003718;
+    --clr-bg-button-hover: #00003716;
     --clr-bg-button-active: #00003732;
     --clr-fg-button-active: #6a6a79;
 

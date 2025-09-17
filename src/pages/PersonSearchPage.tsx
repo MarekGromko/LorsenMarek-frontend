@@ -5,7 +5,7 @@ import PersonCell from "../components/PersonCell";
 import { useSearchParams } from "react-router";
 import { usePersonSearch } from "../api/personApi";
 
-const PAGE_SIZE = 16;
+const PAGE_SIZE = 6;
 
 const PersonSearchPage = ()=>{
     const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +18,7 @@ const PersonSearchPage = ()=>{
     const handleSearch = (query: string) => {
         setSearchParams((params)=>{
             params.set('name', query);
+            params.set('page', "0");
             return params;
         });
     }
@@ -48,7 +49,7 @@ const PersonSearchPage = ()=>{
                 .ready(data=>{
                     console.log(data.length);
                     return (
-                        <div className="t-panel big result-wrapper entry-transition">
+                        <div className="result-wrapper entry-transition">
                             <div className="result-grid">
                                 {data.slice(0, PAGE_SIZE).map(person=><PersonCell key={person.id} {...person}/>)}
                             </div>

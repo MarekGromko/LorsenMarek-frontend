@@ -30,7 +30,7 @@ const PersonDetailWrapper = ({localDetails, setLocalDetails, remoteDetails, relo
     }
 
     return (
-        <div className="t-panel big entry-transition">
+        <div className="entry-transition">
             <div className="detail-grid">
                 <div className="name-row">
                     <Editable 
@@ -71,7 +71,6 @@ const PersonDetailWrapper = ({localDetails, setLocalDetails, remoteDetails, relo
 
 const PersonDetailPage = ()=>{
     const params = useParams();
-    if(!Number(params.id)) throw "error";
     const id = parseInt(params.id!);
     ///
     const [localDetails, setLocalDetails] = useState<Person>({} as Person);
