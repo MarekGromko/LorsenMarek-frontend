@@ -17,6 +17,8 @@ const RootPage = () => {
                 <NavLink className={({ isActive }) => (isActive ? "active" : "")} to={`/person/${(Math.random()*20) | 0}`}>Person CRUD</NavLink>
                 <div className="divider"/>
                 <h2>Features Series</h2>
+                <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/serie/search">Serie Search</NavLink>
+                <NavLink className={({ isActive }) => (isActive ? "active" : "")} to={`/serie/${(Math.random()*20) | 0}`}>Serie CRUD</NavLink>
                 <div className="divider"/>
                 <h2>Features History</h2>
             </nav>

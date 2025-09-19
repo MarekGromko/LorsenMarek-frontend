@@ -1,4 +1,4 @@
-.person-detail-page {
+.detail-page {
     display: grid;
     grid-template-rows: auto 1fr;
     max-width: 840px;
@@ -58,7 +58,7 @@
         padding-bottom: 32px;
         row-gap: 42px;
         font-size: 22px;
-        > .name-row {
+        > .row {
             font-size: 36px;
             display: flex;
             flex-direction: row;

@@ -18,17 +18,14 @@ const PersonDetailWrapper = ({localDetails, setLocalDetails, remoteDetails, relo
     const makeHandleEdit = (key: keyof Person) => {
         return (newValue: string) => !isBusy && setLocalDetails({...localDetails, [key]: newValue});
     }
-
     const handlePush = ()=>{
         updatePerson(localDetails).then(()=>(setBusy(false), reloadRemote()));
         setBusy(true);
     }
-
     const handleDelete = ()=>{
         deletePerson(localDetails.id).then(()=>(setBusy(false), reloadRemote()));
         setBusy(true);
     }
-
     return (
         <div className="entry-transition">
             <div className="detail-grid">

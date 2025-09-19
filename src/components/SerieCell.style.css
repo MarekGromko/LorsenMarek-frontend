@@ -1,16 +1,24 @@
-.person-cell {
+.serie-cell {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-    padding: 8px;
+    padding: 10px;
     height: fit-content;
+
+    label {
+        text-transform: uppercase;
+        color: var(--clr-txt-label);
+        font-weight: 500;
+        font-size: 14px;
+    }
     .row {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    .row.id-gender {
-        .gender {
+
+    .row.id-note {
+        .note {
             color: var(--clr-txt-tertiary);
             text-transform: uppercase;
             font-size: 14px;
@@ -31,13 +39,14 @@
             }
         }
     }
-    .row.name {
+
+    .row.title {
         font-size: 24px;
         font-weight: 500;
         color: var(--clr-txt-primary);
     }
-    .row.email {
-        color: var(--clr-txt-tertiary);
+    .row.genre-nb-episode {
+        color: var(--clr-txt-secondary);
         text-transform: lowercase;
     }
 }

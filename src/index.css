@@ -12,8 +12,11 @@
 @import "./components/PersonCell.style.css";
 @import "./components/SearchBar.style.css";
 @import "./components/Editable.style.css";
+@import "./components/DropDown.style.css";
+@import "./components/SerieCell.style.css";
 
 /* pages */
+@import "./pages/RootPage.style.css";
 @import "./pages/PersonSearchPage.style.css";
 @import "./pages/PersonDetailPage.style.css";
-@import "./pages/RootPage.style.css";
+@import "./pages/SerieSearchPage.style.css";

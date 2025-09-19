@@ -47,7 +47,6 @@ const PersonSearchPage = ()=>{
             {searchResult
                 .notReady(()=><div className="loader"/>)
                 .ready(data=>{
-                    console.log(data.length);
                     return (
                         <div className="result-wrapper entry-transition">
                             <div className="result-grid">
