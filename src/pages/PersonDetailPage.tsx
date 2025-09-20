@@ -29,7 +29,7 @@ const PersonDetailWrapper = ({localDetails, setLocalDetails, remoteDetails, relo
     return (
         <div className="entry-transition">
             <div className="detail-grid">
-                <div className="name-row">
+                <div className="row">
                     <Editable 
                         onEdit={makeHandleEdit('firstName')}
                         className="first-name" 
@@ -80,7 +80,7 @@ const PersonDetailPage = ()=>{
 
     ///
     return (
-        <div className="person-detail-page">
+        <div className="person detail-page">
             <div className="id-field">
                 <label>id</label>
                 <div>@{params.id!.padStart(12, '0')}</div>
