@@ -48,3 +48,9 @@ export default tseslint.config({
   },
 })
 ```
+
+## Installation
+
+```bash
+npm install
+```
